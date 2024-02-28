@@ -1,0 +1,12 @@
+{
+  "name": "FastCash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "cd backend && pnpm run start:dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

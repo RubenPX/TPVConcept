@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev:backend": "cd backend && pnpm run start:dev",
-    "dev:frontend": "cd frontend/svelte && pnpm run dev",
-    "dev:full-svelte": "concurrently -c \"#e0234e,#ff794c\" -n nestjs,svelte \"pnpm run dev:backend\" \"pnpm run dev:frontend\""
+    "dev:svelte": "cd frontend/svelte && pnpm run dev",
+    "dev:full-svelte": "concurrently -c \"#e0234e,#ff794c\" -n nestjs,svelte \"pnpm run dev:backend\" \"pnpm run dev:svelte\""
   },
   "keywords": [],
   "author": "",

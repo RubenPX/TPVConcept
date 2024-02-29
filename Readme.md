@@ -10,7 +10,7 @@ Concepto de TPV (Caja registradora) (Ejercicio)
 
 ## Inicio de proyecto en modo desarollo
 
-- Backend: `pnpm run dev:backend`
+- Backend: `pnpm run dev:backend` (Puerto 3000)
 - Svelte: `pnpm run dev:full-svelte`
 
 ## Estructura de carpetas

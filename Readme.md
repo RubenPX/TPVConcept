@@ -1,11 +1,7 @@
 ## Proyecto FastTPV
 
-<div align="center">
-	Concepto de TPV (Caja registradora) (Ejercicio) | 
-	<a href="https://gitmoji.dev"> <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji"> </a>
-</div>
-
-
+<div align="center">Concepto de TPV (Caja registradora) (Ejercicio)</div>
+<div align="center"><a href="https://gitmoji.dev"> <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji"> </a></div>
 
 ## Requisitos
 

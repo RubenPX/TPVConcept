@@ -50,7 +50,7 @@ interface factura {
   id: number
   fecha: Date
   productosVendidos: Producto[]
-  vendidoPor: Trabajador
+  vendedor: Trabajador
 }
 ```
 

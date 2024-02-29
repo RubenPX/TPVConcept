@@ -18,11 +18,11 @@
 
 Este proyecto esta construido con el concepto de mono-repositorio
 
-- `.vscode`: Configuración personalizada de visual code
-- `backend`: RestAPI para el frontend (Creado con NestJS)
+- `.vscode`: Configuración personalizada de [visual code](https://code.visualstudio.com)
+- `backend`: RestAPI para el frontend (Creado con [NestJS](https://docs.nestjs.com))
 - `forntend`: Carpeta donde se alojara los diferentes proyectos de frontend
-    - `svelte`: Frontend creado con el framework svelte
-    - `react`: Frontend creado con el framework React
+    - `svelte`: Frontend creado con el framework [Svelte](https://svelte.dev/docs/) + [SvelteKit](https://kit.svelte.dev/docs/)
+    - `react`: Frontend creado con el framework [React](https://es.react.dev/reference/react)
 
 ## Motivo
 

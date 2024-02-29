@@ -2,6 +2,13 @@
 
 Concepto de TPV (Caja registradora) (Ejercicio)
 
+<p align="center">
+	<a href="https://gitmoji.dev">
+		<img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+			 alt="Gitmoji">
+	</a>
+</p>
+
 ## Requisitos
 
 1. Tener NodeJS instalado en el sistema: https://nodejs.org/en/download/

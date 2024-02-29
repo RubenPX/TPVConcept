@@ -1,21 +1,11 @@
 import { Injectable } from '@nestjs/common';
-
-type Trabajador = { userId: number; user: string; pass: string };
+import { Trabajador as ITrabajador } from 'src/DB/entity/Trabajador';
+import { Trabajadores as TrabajadoresDB } from 'src/DB/static/Trabajadores';
+import { Trabajador } from './entities/trabajador.entity';
 
 @Injectable()
 export class TrabajadoresService {
-  private readonly trabajadores: Trabajador[] = [
-    {
-      userId: 1,
-      user: 'john',
-      pass: 'changeme',
-    },
-    {
-      userId: 2,
-      user: 'maria',
-      pass: 'guess',
-    },
-  ];
+  private readonly trabajadores: ITrabajador[] = TrabajadoresDB;
 
   async findOne(username: string): Promise<Trabajador | undefined> {
     return this.trabajadores.find((trabajador) => trabajador.user === username);

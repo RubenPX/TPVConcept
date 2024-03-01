@@ -1,11 +1,13 @@
 <script>
+	import { trabajadoresDB } from '$lib/db/Trabajadores';
+
 	let dbData = [];
 </script>
 
-<main class="m-auto my-5 max-w-5xl">
+<main class="m-auto my-5 max-w-2xl">
 	<div class="card bg-base-100 mt-2 w-full p-6 shadow-xl">
 		<div class="inline-block text-xl font-semibold">
-			Current Leads
+			Trabajadores
 			<div class="float-right inline-block">
 				<div class="float-right inline-block">
 					<button class="btn btn-sm btn-primary px-6 normal-case">Add New</button>
@@ -18,30 +20,24 @@
 				<table class="table w-full">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Email Id</th>
-							<th>Created At</th>
-							<th>Status</th>
-							<th>Assigned To</th>
+							<th>ID</th>
+							<th>Nombre</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>
-								<div class="flex items-center space-x-3">
-									<div>
-										<div class="font-bold">Michael</div>
-										<div class="text-sm opacity-50">Lawson</div>
+						{#each trabajadoresDB as trabajador}
+							<tr>
+								<td>{trabajador.id}</td>
+								<td>
+									<div class="flex items-center space-x-3">
+										<div>
+											<div class="font-bold">{trabajador.nombre}</div>
+											<div class="text-sm opacity-50">{trabajador.apellido}</div>
+										</div>
 									</div>
-								</div>
-							</td>
-							<td>michael.lawson@reqres.in</td>
-							<td>20 Feb 24</td>
-							<td>
-								<div class="badge">Not Interested</div>
-							</td>
-							<td>Lawson</td>
-						</tr>
+								</td>
+							</tr>
+						{/each}
 					</tbody>
 				</table>
 			</div>

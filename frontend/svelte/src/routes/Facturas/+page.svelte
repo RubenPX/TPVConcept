@@ -25,6 +25,7 @@
 						vendedor: (factura) => factura.vendedor.nombre,
 						total: (factura) => `${factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €`
 					}}
+					on:click={({ detail }) => console.log(detail)}
 				/>
 			</div>
 		</div>

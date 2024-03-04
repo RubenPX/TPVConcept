@@ -1,8 +1,12 @@
 <script lang="ts" generics="T">
+	import { createEventDispatcher } from 'svelte';
+
 	type fieldAction<Ty> = { [key: string]: (item: Ty) => string | number };
 
 	export let data: T[] = [];
 	export let fields: fieldAction<T>;
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <table class="table w-full">
@@ -15,15 +19,10 @@
 	</thead>
 	<tbody>
 		{#each data as item}
-			<tr>
+			<tr class="hover cursor-pointer" on:click={() => dispatch('click', item)}>
 				{#each Object.values(fields) as field}
 					<td>{field(item)}</td>
 				{/each}
-				<!-- 
-          <td>{Intl.DateTimeFormat('es', { dateStyle: 'full', timeStyle: 'short' }).format(factura.fecha)}</td>
-          <td>{factura.vendedor.nombre}</td>
-          <td>{factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €</td> 
-        -->
 			</tr>
 		{/each}
 	</tbody>

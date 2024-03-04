@@ -2,49 +2,6 @@
 	let dbData = [];
 </script>
 
-<main class="m-auto my-5 max-w-5xl">
-	<div class="card bg-base-100 mt-2 w-full p-6 shadow-xl">
-		<div class="inline-block text-xl font-semibold">
-			Current Leads
-			<div class="float-right inline-block">
-				<div class="float-right inline-block">
-					<button class="btn btn-sm btn-primary px-6 normal-case">Add New</button>
-				</div>
-			</div>
-		</div>
-		<div class="divider mt-2"></div>
-		<div class="bg-base-100 h-full w-full pb-6">
-			<div class="w-full overflow-x-auto">
-				<table class="table w-full">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Email Id</th>
-							<th>Created At</th>
-							<th>Status</th>
-							<th>Assigned To</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<div class="flex items-center space-x-3">
-									<div>
-										<div class="font-bold">Michael</div>
-										<div class="text-sm opacity-50">Lawson</div>
-									</div>
-								</div>
-							</td>
-							<td>michael.lawson@reqres.in</td>
-							<td>20 Feb 24</td>
-							<td>
-								<div class="badge">Not Interested</div>
-							</td>
-							<td>Lawson</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+<main class="m-auto my-5 w-fit max-w-5xl">
+	<h1 class="m-auto text-2xl font-bold">Bienvenido al sistema de facturación</h1>
 </main>

@@ -1,7 +1,20 @@
-<script>
+<script lang="ts">
+	import Table from '$lib/components/Table.svelte';
+	import { FacturasDB } from '$lib/db/Facturas';
+	import type { ProductoType } from '$lib/db/Producto';
 	import { trabajadoresDB } from '$lib/db/Trabajadores';
 
 	let dbData = [];
+
+	function calcVentas(trabajadorID: number) {
+		let sumProductosVendidos = (data: ProductoType[]) => data.reduce((acc, curr) => (acc += curr.precio), 0);
+
+		let productosVendidosPorVendedor = FacturasDB.filter((itm) => trabajadorID == itm.vendedor.id);
+		let sumaProductosVendidos = productosVendidosPorVendedor.map((v) => sumProductosVendidos(v.productosVendidos));
+		let totalIngresosGenerados = sumaProductosVendidos.reduce((acc, curr) => (acc += curr), 0);
+
+		return `${totalIngresosGenerados} €`;
+	}
 </script>
 
 <main class="m-auto my-5 max-w-2xl">
@@ -17,29 +30,15 @@
 		<div class="divider mt-2"></div>
 		<div class="bg-base-100 h-full w-full pb-6">
 			<div class="w-full overflow-x-auto">
-				<table class="table w-full">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Nombre</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each trabajadoresDB as trabajador}
-							<tr>
-								<td>{trabajador.id}</td>
-								<td>
-									<div class="flex items-center space-x-3">
-										<div>
-											<div class="font-bold">{trabajador.nombre}</div>
-											<div class="text-sm opacity-50">{trabajador.apellido}</div>
-										</div>
-									</div>
-								</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
+				<Table
+					data={trabajadoresDB}
+					fields={{
+						ID: (trabajador) => trabajador.id,
+						Nombre: (trabajador) => trabajador.nombre,
+						Apellido: (trabajador) => trabajador.apellido,
+						'Ingresos generados': (trabajador) => calcVentas(trabajador.id)
+					}}
+				/>
 			</div>
 		</div>
 	</div>

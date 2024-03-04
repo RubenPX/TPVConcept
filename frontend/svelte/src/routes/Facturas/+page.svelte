@@ -1,4 +1,5 @@
 <script>
+	import Table from '$lib/components/Table.svelte';
 	import { FacturasDB } from '$lib/db/Facturas';
 	import { ProductoDB } from '$lib/db/Producto';
 </script>
@@ -16,26 +17,15 @@
 		<div class="divider mt-2"></div>
 		<div class="bg-base-100 h-full w-full pb-6">
 			<div class="w-full overflow-x-auto">
-				<table class="table w-full">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Fecha</th>
-							<th>Vendedor</th>
-							<th>Total</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each FacturasDB as factura}
-							<tr>
-								<td>{factura.id}</td>
-								<td>{Intl.DateTimeFormat('es', { dateStyle: 'full', timeStyle: 'short' }).format(factura.fecha)}</td>
-								<td>{factura.vendedor.nombre}</td>
-								<td>{factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
+				<Table
+					data={FacturasDB}
+					fields={{
+						id: (factura) => factura.id,
+						fecha: (factura) => Intl.DateTimeFormat('es', { dateStyle: 'full', timeStyle: 'short' }).format(factura.fecha),
+						vendedor: (factura) => factura.vendedor.nombre,
+						total: (factura) => `${factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €`
+					}}
+				/>
 			</div>
 		</div>
 	</div>

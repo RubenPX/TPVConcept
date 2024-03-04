@@ -1,4 +1,5 @@
 <script>
+	import Table from '$lib/components/Table.svelte';
 	import { ProductoDB } from '$lib/db/Producto';
 </script>
 
@@ -15,26 +16,15 @@
 		<div class="divider mt-2"></div>
 		<div class="bg-base-100 h-full w-full pb-6">
 			<div class="w-full overflow-x-auto">
-				<table class="table w-full">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Nombre</th>
-							<th>Categoria</th>
-							<th>Precio</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each ProductoDB as producto}
-							<tr>
-								<td>{producto.id}</td>
-								<td>{producto.nombre}</td>
-								<td>{producto.categoria}</td>
-								<td>{producto.precio}</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
+				<Table
+					data={ProductoDB}
+					fields={{
+						ID: (producto) => producto.id,
+						Nombre: (producto) => producto.nombre,
+						Categoria: (producto) => producto.categoria,
+						Precio: (producto) => producto.precio
+					}}
+				/>
 			</div>
 		</div>
 	</div>

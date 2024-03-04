@@ -7,7 +7,7 @@
 	<div class="drawer-content flex w-full flex-col">
 		<!-- Navbar -->
 		<div class="navbar bg-base-300 fixed z-10 w-full">
-			<div class="mx-2 flex-1 px-2">Navbar Title</div>
+			<div class="mx-2 flex-1 px-2"><a href="/">Sistema TPV</a></div>
 			<div class="hidden flex-none sm:block">
 				<ul class="menu menu-horizontal">
 					<!-- Navbar menu content here -->

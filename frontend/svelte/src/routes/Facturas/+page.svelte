@@ -1,33 +1,42 @@
-<script>
+<script lang="ts">
+	import Card from '$lib/components/Card.svelte';
 	import Table from '$lib/components/Table.svelte';
-	import { FacturasDB } from '$lib/db/Facturas';
-	import { ProductoDB } from '$lib/db/Producto';
+	import { FacturasDB, type FacturaType } from '$lib/db/Facturas';
+
+	let facturaSeleccionada: FacturaType | undefined = undefined;
 </script>
 
 <main class="m-auto my-5 max-w-2xl">
-	<div class="card bg-base-100 mt-2 w-full p-6 shadow-xl">
-		<div class="inline-block text-xl font-semibold">
-			Facturas
-			<div class="float-right inline-block">
-				<div class="float-right inline-block">
-					<button class="btn btn-sm btn-primary px-6 normal-case">Add New</button>
-				</div>
-			</div>
-		</div>
-		<div class="divider mt-2"></div>
-		<div class="bg-base-100 h-full w-full pb-6">
-			<div class="w-full overflow-x-auto">
-				<Table
-					data={FacturasDB}
-					fields={{
-						id: (factura) => factura.id,
-						fecha: (factura) => Intl.DateTimeFormat('es', { dateStyle: 'full', timeStyle: 'short' }).format(factura.fecha),
-						vendedor: (factura) => factura.vendedor.nombre,
-						total: (factura) => `${factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €`
-					}}
-					on:click={({ detail }) => console.log(detail)}
-				/>
-			</div>
-		</div>
-	</div>
+	<Card title="Facturas">
+		<span slot="rightHeader">
+			<button class="btn btn-sm btn-primary px-6 normal-case">Add New</button>
+		</span>
+		<Table
+			data={FacturasDB}
+			fields={{
+				id: (factura) => factura.id,
+				fecha: (factura) => Intl.DateTimeFormat('es', { dateStyle: 'full', timeStyle: 'short' }).format(factura.fecha),
+				vendedor: (factura) => factura.vendedor.nombre,
+				total: (factura) => `${factura.productosVendidos.reduce((acc, curr) => (acc += curr.precio), 0)} €`
+			}}
+			on:click={({ detail }) => (facturaSeleccionada = detail)}
+		/>
+	</Card>
+
+	{#if facturaSeleccionada}
+		<Card title="Productos vendidos de la factura seleccionada">
+			<span slot="rightHeader">
+				<button class="btn btn-sm btn-circle btn-primary normal-case" on:click={() => (facturaSeleccionada = undefined)}>X</button>
+			</span>
+			<Table
+				data={facturaSeleccionada.productosVendidos}
+				fields={{
+					ID: (producto) => producto.id,
+					Nombre: (producto) => producto.nombre,
+					Categoria: (producto) => producto.categoria,
+					Precio: (producto) => producto.precio
+				}}
+			/>
+		</Card>
+	{/if}
 </main>

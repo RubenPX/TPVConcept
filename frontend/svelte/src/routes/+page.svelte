@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	let dbData = [];
+</script>
+
+<main class="m-auto my-5 w-fit max-w-5xl">
+	<h1 class="m-auto text-2xl font-bold">Bienvenido al sistema de facturación</h1>
+</main>
